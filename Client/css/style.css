@@ -1,0 +1,331 @@
+.wrapper {
+  display: flex;
+}
+
+#map {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+}
+
+/*********************************/
+/** Leaftlet Adjustments */
+/*********************************/
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+.leaflet-control-zoom {
+  border: 0 !important;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: #02090e !important;
+}
+
+.leaflet-control-zoom-in {
+  border-top-left-radius: 9px !important;
+  border-top-right-radius: 9px !important;
+}
+
+.leaflet-control-zoom-out {
+  border-bottom-left-radius: 9px !important;
+  border-bottom-right-radius: 9px !important;
+}
+
+.leaflet-control-zoom-out span,
+.leaflet-control-zoom-in span {
+  color: #66a80f;
+}
+
+.leaflet-popup-tip {
+  display: none;
+}
+
+.leaflet-popup-content-wrapper {
+  box-sizing: border-box;
+  background-color: #02090e !important;
+  margin-bottom: 1.2rem;
+  width: max-content !important;
+  padding: 1.6rem 2.4rem 1.6rem 1.6rem !important;
+  width: 100%;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  padding: 0;
+}
+
+
+/*********************************/
+/** MENU */
+/*********************************/
+
+.sidebar {
+  padding: 1.6rem 1.2rem 1.2rem 1.2rem;
+  width: 10rem;
+  background-color: #02090e;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: all 0.35s ease-in-out;
+}
+
+/** HEADER */
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  padding-right: 1.6rem;
+  padding-bottom: 2.4rem;
+}
+
+.sidebar-header img {
+  width: 6.2rem;
+  color: #66a80f;
+  cursor: pointer;
+}
+
+.logo-text {
+  font-size: 2.2rem;
+  font-family: 'Rammetto One';
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #fff;
+}
+
+/** SEARCH FORM */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 3.2rem;
+}
+
+.btn--custom {
+  border: 0;
+  padding: 1.85rem 1.2rem 1.2rem 1.2rem;
+  background-color: transparent;
+
+}
+
+.search-icon {
+  font-size: 2rem;
+  color: #bbb;
+}
+
+.search-box {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  border-bottom: 2px solid #bbb;
+  padding: 0.2rem;
+}
+
+.search-box::placeholder {
+  color: #bbb;
+}
+
+.search-box:focus {
+  outline: none;
+  color: #fff;
+}
+
+.search-box:focus::placeholder {
+  color: transparent;
+}
+
+/** GENERAL INFO */
+
+.sidebar-App-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 4.8rem;
+  row-gap: 1.2rem;
+  column-gap: 1.6rem;
+}
+
+.info-content {
+  text-align: center;
+  line-height: 1.5;
+  padding: 0.8rem 1.6rem;
+  border-radius: 11px;
+  background-color: rgba(255, 255, 255, .04);
+  width: 100%;
+  height: 100%;
+}
+
+.info-label {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.info-label-icon {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.info-label-icon--primary {
+  color: #66a80f !important;
+  font-size: 1.2rem !important;
+}
+
+.info-label-icon--green {
+  color: #40c057 !important;
+}
+
+.info-label-icon--yellow {
+  color: #ffd43b;
+}
+
+.info-label-icon--red {
+  color: #e03131;
+}
+
+.info-value-box {
+  color: #ddd;
+  font-weight: 600;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: .3rem;
+}
+
+.info-value-text {
+  line-height: 1.2;
+}
+
+
+.info-value-box .euro {
+  line-height: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #bbb;
+}
+
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/** LIST */
+
+.sidebar-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-bottom: 1.2rem;
+}
+
+.sidebar-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.pop-up {
+  display: none;
+}
+
+/** Footer */
+
+.version-text {
+  font-size: 1.2rem;
+}
+
+
+/*********************************/
+/** Marker Pop Up */
+/*********************************/
+
+
+.clear {
+  margin: 0 !important;
+}
+
+
+.marker-heading-container {
+  color: #ddd;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.marker-heading-container img {
+  width: 35px;
+  height: 35px;
+}
+
+.heading-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+}
+
+.marker-icon-and-text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.marker-brand-name {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  width: fit-content;
+}
+
+.marker-brand-name-icon {
+  font-size: 1.8rem;
+}
+
+.marker-gas-station-owner {
+  font-size: 1.4rem;
+  width: fit-content;
+}
+
+.marker-gas-station-address-icon {
+  font-size: 1.4rem;
+}
+
+.marker-gas-station-address {
+  margin-bottom: 0 !important;
+  font-size: 1.2rem;
+  width: fit-content;
+  word-break: keep-all;
+}
+
+.marker-gas-station-icon {
+  font-size: 1.4rem;
+}
+
+.marker-gas-station-phone {
+  font-size: 1.2rem;
+  width: fit-content;
+}
+
+.marker-gas-station-phone-icon {
+  font-size: 1.2rem;
+}
