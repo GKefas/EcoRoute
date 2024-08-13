@@ -15,7 +15,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-    
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
@@ -52,7 +52,7 @@
             <span>Stations</span>
           </p>
           <p class="info-value-box">
-            <span class="info-value-text" id="GasStationsCount">205</span>
+            <span class="info-value-text" id="GasStationsCount">-</span>
           </p>
         </div>
         <div class="info-content">
@@ -61,7 +61,7 @@
             <span>Average</span>
           </p>
           <p class="info-value-box">
-            <span id="AveragePrice" class="info-value-text">1.752</span>
+            <span id="AveragePrice" class="info-value-text">-</span>
             <span class="euro">€</span>
           </p>
         </div>
@@ -71,7 +71,7 @@
             <span>Lowest</span>
           </p>
           <p class="info-value-box">
-            <span id="LowestPrice" class="info-value-text">1.304</span>
+            <span id="LowestPrice" class="info-value-text">-</span>
             <span class="euro">€</span>
           </p>
         </div>
@@ -81,14 +81,14 @@
             <span>Highest</span>
           </p>
           <p class="info-value-box">
-            <span id="HighestPrice" class="info-value-text">2.304</span>
+            <span id="HighestPrice" class="info-value-text">-</span>
             <span class="euro">€</span>
           </p>
         </div>
       </div>
       <ul class="sidebar-list">
         <li class="sidebar-list-item toToggle display-none">
-          <button class="btn-primary btn--outline">
+          <button class="btn-primary btn--outline" id="home">
             <i class="fa-solid fa-house sidebar-icon"></i>
             <span class="item-text">Home</span>
           </button>
@@ -138,6 +138,7 @@
 
   <script src="Client/scripts/AppInit.js"></script>
   <script src="Client/scripts/sideBar.js"></script>
+  <script src="Client/scripts/buttons/home.js"></script>
 </body>
 
 </html>

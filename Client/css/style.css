@@ -39,22 +39,38 @@
   color: #66a80f;
 }
 
+.leaflet-popup {
+  margin-bottom: 3rem !important;
+}
+
+.leaflet-container {
+  font-family: inherit !important;
+}
+
 .leaflet-popup-tip {
-  display: none;
+  /* display: none; */
+  background-color: #02090e !important;
+  margin-top: -1.5rem !important;
 }
 
 .leaflet-popup-content-wrapper {
   box-sizing: border-box;
   background-color: #02090e !important;
-  margin-bottom: 1.2rem;
   width: max-content !important;
-  padding: 1.6rem 2.4rem 1.6rem 1.6rem !important;
+  border-radius: 11px !important;
   width: 100%;
 }
 
 .leaflet-popup-content {
   margin: 0 !important;
   padding: 0;
+  width: max-content !important;
+}
+
+.leaflet-popup-close-button {
+  color: #ddd !important;
+  top: 0.5rem !important;
+  right: 1rem !important;
 }
 
 
@@ -227,6 +243,7 @@ input[type="search"]::-webkit-search-results-decoration {
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  gap: 0.8rem;
   flex-grow: 1;
   padding-bottom: 1.2rem;
 }
@@ -263,6 +280,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .marker-heading-container {
   color: #ddd;
+  padding: 1.6rem;
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -278,8 +296,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .heading-content {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-
+  gap: 1.2rem;
+  width: 100%;
 }
 
 .marker-icon-and-text-container {
@@ -289,12 +307,18 @@ input[type="search"]::-webkit-search-results-decoration {
   gap: 0.8rem;
 }
 
+
+.marker-icon-and-text-container>p,
+.marker-icon-and-text-container>h2 {
+  line-height: 1;
+}
+
 .marker-brand-name {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #fff;
   font-weight: 600;
   letter-spacing: 1.5px;
-  width: fit-content;
+  width: max-content;
 }
 
 .marker-brand-name-icon {
@@ -303,7 +327,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .marker-gas-station-owner {
   font-size: 1.4rem;
-  width: fit-content;
+  width: max-content;
 }
 
 .marker-gas-station-address-icon {
@@ -313,7 +337,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .marker-gas-station-address {
   margin-bottom: 0 !important;
   font-size: 1.2rem;
-  width: fit-content;
+  width: max-content;
   word-break: keep-all;
 }
 
@@ -323,9 +347,51 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .marker-gas-station-phone {
   font-size: 1.2rem;
-  width: fit-content;
+  width: max-content;
 }
 
 .marker-gas-station-phone-icon {
   font-size: 1.2rem;
+}
+
+
+.marker-fuels-container {
+  background-color: #b3b5b7;
+  border-bottom-left-radius: 11px;
+  border-bottom-right-radius: 11px;
+  width: 100%;
+  padding: 1.6rem;
+  font-size: 1.4rem;
+}
+
+.fuel-details {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.fuel-details>* {
+  padding: 0;
+  margin: 0 !important;
+}
+
+.fuel-details:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.fuel-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  font-family: inherit;
+}
+
+.fuel-price {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.fuel-update {
+  line-height: 0.5;
+  color: #555;
 }

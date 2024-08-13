@@ -1,5 +1,5 @@
 const pricing = (req, res, db) => {
-  const { gasStationOwner } = req.body;
+  const { gasStationOwner } = req.query;
   const query =
     "SELECT fuelName,fuelPrice,dateUpdated,isPremium FROM gasstations JOIN pricedata ON gasstations.gasStationID=pricedata.gasStationID WHERE gasStationOwner=?";
 

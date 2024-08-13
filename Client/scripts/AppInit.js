@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const Buttons = document.querySelectorAll(".toToggle");
     const loginContent = document.getElementById("login-text");
 
-    if (localStorage.getItem("isLoggedIn")) {
+    if (localStorage.getItem("isLoggedIn") === "true") {
       Buttons.forEach((button) => {
         button.classList.remove("display-none");
       });
@@ -53,6 +53,49 @@ const isEmpty = (data) => {
   return value;
 };
 
+const displayFuelList = (fuels) => {
+  let list = "";
+  fuels.map((fuel) => {
+    list += `<div class="fuel-details">
+              <p class="fuel-name">${fuel.fuelName} </p>
+              <p class="fuel-price">${fuel.fuelPrice} €</p>
+              <p class="fuel-update">Last Update: ${fuel.dateUpdated.slice(
+                0,
+                10
+              )} </p>
+            </div>`;
+  });
+  return list;
+};
+
+const getPopUpHTML = (company, owner, address, phone, fuels) => {
+  return `
+      <div class="marker-heading-container">   
+        <div class="heading-content">
+          <div class="marker-icon-and-text-container">
+          <img src="logos/default.png" alt="Gas Station Logo" class="marker-brand-name-icon"/>
+          <h1 class="marker-brand-name">${company}</h1>
+          </div>
+          <div class="marker-icon-and-text-container">
+          <i class="fa-solid fa-user marker-gas-station-icon"></i>
+          <h2 class="marker-gas-station-owner">${owner}</h2>
+          </div>
+          <div class="marker-icon-and-text-container">
+          <i class="fa-solid fa-location-dot marker-gas-station-address-icon"></i>
+          <p class="marker-gas-station-address clear">${address}</p>
+          </div>
+          <div class="marker-icon-and-text-container">
+          <i class="fa-solid fa-phone marker-gas-station-phone-icon"></i>
+          <p class="marker-gas-station-phone clear">${phone}</p>
+          </div>
+        </div>
+      </div>
+      <div class="marker-fuels-container">
+      ${displayFuelList(fuels)}
+      </div>
+      `;
+};
+
 //DATA RETRIEVE FROM BACKEND AND PLACE MARKERS
 
 const defaultIcon = L.icon({
@@ -69,44 +112,31 @@ fetch(url.concat(startingEndPoint), { method: "GET" })
   .then((response) => response.json())
   .then((data) => {
     data.map((gasStation) => {
-      let marker = L.marker(
-        [gasStation.gasStationLat, gasStation.gasStationLong],
+      fetch(
+        url.concat(`/pricing?gasStationOwner=` + gasStation.gasStationOwner),
         {
-          icon: defaultIcon,
+          method: "GET",
         }
-      ).addTo(map);
-      // phone1
-      marker.bindPopup(`
-      <div class="marker-heading-container">
-        <img src="logos/default.png" alt="Gas Station Logo"/>
-        <div class="heading-content">
-          <div class="marker-icon-and-text-container">
-          <i class="fa-solid fa-gas-pump marker-brand-name-icon"></i>
-          <h1 class="marker-brand-name">${gasStation.fuelCompNormalName}</h1>
-          </div>
-          <div class="marker-icon-and-text-container">
-          <i class="fa-solid fa-user marker-gas-station-icon"></i>
-          <h2 class="marker-gas-station-owner">${
-            gasStation.gasStationOwner
-          }</h2>
-          </div>
-          <div class="marker-icon-and-text-container">
-          <i class="fa-solid fa-location-dot marker-gas-station-address-icon"></i>
-          <p class="marker-gas-station-address clear">${
-            gasStation.gasStationAddress
-          }</p>
-          </div>
-          <div class="marker-icon-and-text-container">
-          <i class="fa-solid fa-phone marker-gas-station-phone-icon"></i>
-          <p class="marker-gas-station-phone clear">${isEmpty(
-            gasStation.phone1
-          )}</p>
-          </div>
-        </div>
-      </div>
-      `);
+      )
+        .then((response) => response.json())
+        .then((fuels) => {
+          let marker = L.marker(
+            [gasStation.gasStationLat, gasStation.gasStationLong],
+            {
+              icon: defaultIcon,
+            }
+          ).addTo(map);
+          marker.bindPopup(
+            getPopUpHTML(
+              gasStation.fuelCompNormalName,
+              gasStation.gasStationOwner,
+              gasStation.gasStationAddress,
+              isEmpty(gasStation.phone1),
+              fuels
+            )
+          );
+        });
     });
-    console.log(data);
     fetch(url.concat(generalInfoUrl), { method: "GET" })
       .then((response) => response.json())
       .then((generalInfo) => {
